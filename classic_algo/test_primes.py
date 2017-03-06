@@ -20,6 +20,9 @@ class TestIsPrimeNumber(unittest.TestCase):
         self.assertEqual(False, algorithms.is_prime_number(1))
         self.assertEqual(False, algorithms.is_prime_number(4))
 
+    def test_big_numbers(self):
+        self.assertEqual(True, algorithms.is_prime_number(10 ** 4 + 7))
+
     def test_exception(self):
         self.assertRaises(ValueError, algorithms.is_prime_number, 0)
         self.assertRaises(ValueError, algorithms.is_prime_number, -131)
