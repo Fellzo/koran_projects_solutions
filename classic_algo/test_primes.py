@@ -9,7 +9,7 @@ class TestEratosthenesSieve(unittest.TestCase):
     def test_no_primes(self):
         self.assertEqual([], algorithms.sieve_of_eratosthenes(1))
 
-    def test_exeption(self):
+    def test_exception(self):
         self.assertRaises(ValueError, algorithms.sieve_of_eratosthenes, -1)
 
 
@@ -22,6 +22,7 @@ class TestIsPrimeNumber(unittest.TestCase):
 
     def test_big_numbers(self):
         self.assertEqual(True, algorithms.is_prime_number(10 ** 4 + 7))
+        self.assertEqual(False, algorithms.is_prime_number(143919))
 
     def test_exception(self):
         self.assertRaises(ValueError, algorithms.is_prime_number, 0)
