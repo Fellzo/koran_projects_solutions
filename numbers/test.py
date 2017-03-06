@@ -43,3 +43,13 @@ class TestFibonacci(unittest.TestCase):
 
     def test_exception(self):
         self.assertRaises(ValueError, nums.fibonacci_sequence, -1)
+
+
+class TestFactorization(unittest.TestCase):
+    def test_simple(self):
+        self.assertEqual([2, 2, 2, 2], nums.factorization(16))
+        self.assertEqual([2, 3, 3], nums.factorization(18))
+        self.assertEqual([2, 3, 5], nums.factorization(30))
+
+    def test_exception(self):
+        self.assertRaises(ValueError, nums.factorization, -1)

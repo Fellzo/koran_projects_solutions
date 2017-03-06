@@ -45,6 +45,9 @@ def converter(number: str, curr_base: int, required_base: int) -> str:
     >>> converter('7182', 13, 5)
     '1000104'
 
+    >>> converter('-211', 3, 10)
+    '-22'
+
     >>> converter('ZZ', 3, 10)
     Traceback (most recent call last):
     ...
@@ -118,3 +121,40 @@ def fibonacci_sequence(number: int) -> list:
     for i in range(2, number):
         result.append(result[-1] + result[-2])
     return result[:number]
+
+
+def factorization(number: int) -> list:
+    """
+    Факторизация(разложение на простые множители) числа
+
+    :param number:
+    :return: Список простых делителей числа
+    :rtype: list
+
+    >>> factorization(8)
+    [2, 2, 2]
+
+    >>> factorization(33)
+    [3, 11]
+
+    >>> factorization(17)
+    [17]
+
+    >>> factorization(-1)
+    Traceback (most recent call last):
+     ...
+    ValueError: Входное число должно быть положительным
+    """
+    if number < 1:
+        raise ValueError('Входное число должно быть положительным')
+    result = []
+    d = 2
+    while d * d <= number:
+        if number % d == 0:
+            result.append(d)
+            number //= d
+        else:
+            d += 1
+    if number != 1:
+        result.append(number)
+    return result
