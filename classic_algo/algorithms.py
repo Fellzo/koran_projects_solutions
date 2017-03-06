@@ -4,10 +4,22 @@ def collatz_conjecture(number: int) -> int:
     Найти кол-во шагов через которое f(number) = 1, если
     f(number) = f(number // 2) при четном number, иначе
     f(number) = f(number * 3 + 1)
+
     :param number: int Входное число
     :return: Количество шагов для достижения единицы
     :rtype: int
     :exception ValueError На вход подано отрицательное число или 0
+
+    >>> collatz_conjecture(27)
+    111
+
+    >>> collatz_conjecture(1)
+    0
+
+    >>> collatz_conjecture(-3)
+    Traceback (most recent call last):
+    ...
+    ValueError: Входное число должно быть положительным
     """
     if number < 1:
         raise ValueError("Входное число должно быть положительным")
@@ -28,6 +40,12 @@ def merge_sort(array: list, comparator: callable = lambda x: x) -> list:
     :param comparator: Компоратор для сортировки (функция)
     :return: Отсортированный массив
     :rtype: list
+
+    >>> merge_sort([8, 4, 3, 5])
+    [3, 4, 5, 8]
+
+    >>> merge_sort(['Bzz', 'Lok', 'Aio'], lambda s: s[0])
+    ['Aio', 'Bzz', 'Lok']
     """
 
     def __merge(left: list, right: list) -> list:
@@ -61,6 +79,9 @@ def bubble_sort(array: list, comparator: callable = lambda x: x) -> list:
     :param comparator: Компоратор для сортировки (функция)
     :return: Отсортированный массив
     :rtype: list
+
+    >>> bubble_sort([3, 7, -1, 52])
+    [-1, 3, 7, 52]
     """
     res = list(array)   # Для сохранения входного массива в исходном состоянии
     f = True
@@ -79,6 +100,14 @@ def sieve_of_eratosthenes(number: int) -> list:
     :param number
     :return: Список простых чисел от 2 до number
     :exception: ValueError: Если на вход подано число меньше 1
+
+    >>> sieve_of_eratosthenes(10)
+    [2, 3, 5, 7]
+
+    >>> sieve_of_eratosthenes(-1)
+    Traceback (most recent call last):
+    ...
+    ValueError: Входное число должно быть положительным
     """
     if number < 1:
         raise ValueError('Входное число должно быть положительным')
@@ -98,6 +127,18 @@ def is_prime_number(number: int) -> bool:
     :param number:
     :return: True если число простое, False иначе
     :exception: ValueError: Если на вход подано число меньше 1
+
+    >>> is_prime_number(2)
+    True
+
+    >>> is_prime_number(31)
+    True
+
+    >>> is_prime_number(28)
+    False
+
+    >>> [i for i in range(1, 10) if is_prime_number(i)]
+    [2, 3, 5, 7]
     """
     if number < 1:
         raise ValueError('Входное число должно быть положительным')
