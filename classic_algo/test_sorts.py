@@ -28,7 +28,3 @@ class TestBubbleSort(unittest.TestCase):
 
     def test_only_negative(self):
         self.assertEqual([-199, -35, -15, -10, -3], algorithms.bubble_sort([-3, -10, -199, -35, -15]))
-
-
-if __name__ == '__main__':
-    unittest.main()

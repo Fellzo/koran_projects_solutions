@@ -15,6 +15,3 @@ class TestCollatz(unittest.TestCase):
 
     def test_negative(self):
         self.assertRaises(ValueError, algorithms.collatz_conjecture, -1)
-
-if __name__ == '__main__':
-    unittest.main()
