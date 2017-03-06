@@ -54,3 +54,21 @@ def converter(number: str, curr_base: int, required_base: int) -> str:
         res += str(remainder)
         curr_val //= required_base
     return res[::-1]
+
+
+def fibonacci_sequence(number: int) -> list:
+    """
+    Генерирует number первых членов последовательности Фибоначчи
+    fib[0] = 0
+    fib[1] = 1
+    fib[i] = fib[i - 1] + fib[i - 2], при i > 2
+    :param number:
+    :return: Список из number членов последовательности Фибоначчи
+    :exception: ValueError Если кол-во членов отрицательно
+    """
+    result = [0, 1]
+    if number < 0:
+        raise ValueError('Номер должен быть положительным')
+    for i in range(2, number):
+        result.append(result[-1] + result[-2])
+    return result[:number]

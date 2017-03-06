@@ -32,3 +32,11 @@ class TestConverter(unittest.TestCase):
         self.assertRaises(ValueError, nums.converter, 'F31', 3, 10)
         self.assertRaises(ValueError, nums.converter, '', 3, 10)
         self.assertRaises(NotImplementedError, nums.converter, '-10', 10, 2)
+
+
+class TestFibonacci(unittest.TestCase):
+    def test_simple(self):
+        self.assertEqual([], nums.fibonacci_sequence(0))
+        self.assertEqual([0], nums.fibonacci_sequence(1))
+        self.assertEqual([0, 1], nums.fibonacci_sequence(2))
+        self.assertEqual([0, 1, 1, 2, 3, 5, 8, 13, 21, 34], nums.fibonacci_sequence(10))
